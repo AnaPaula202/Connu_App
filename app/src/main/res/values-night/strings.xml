@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="correo">Correo</string>
+    <string name="pass">Contraseña</string>
+    <string name="lostpass">¿Olvidó su contraseña?</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="goback">Regresar</string>
+</resources>

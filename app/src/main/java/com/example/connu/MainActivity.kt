@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,9 +13,16 @@ class MainActivity : AppCompatActivity() {
 
         val bRegister : Button = findViewById(R.id.bRegister)
 
+        val tvLostPass : TextView = findViewById(R.id.tvLostPass)
+
         bRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        tvLostPass.setOnClickListener {
+            val intentf = Intent(this, ForgottenPassActivity::class.java)
+            startActivity(intentf)
         }
     }
 

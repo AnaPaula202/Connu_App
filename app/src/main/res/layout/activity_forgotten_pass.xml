@@ -7,6 +7,44 @@
     android:background="#76ABDC"
     tools:context=".ForgottenPassActivity">
 
+    <Button
+        android:id="@+id/bNewPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#1F4E79"
+        android:text="@string/newPass"
+        android:textColorLink="#1F4E79"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRMail3" />
+
+    <EditText
+        android:id="@+id/etRMail3"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRMail3" />
+
+    <TextView
+        android:id="@+id/tvRMail3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="300dp"
+        android:fontFamily="@font/alata"
+        android:text="@string/correo"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvGobackFPass"
         android:layout_width="wrap_content"
@@ -15,7 +53,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/alata"
         android:text="@string/goback"
-        android:textColor="@color/white"
+        android:textColor="#002060"
         app:layout_constraintEnd_toStartOf="@+id/ivGobackFPass"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,4 +67,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/go_back" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:rotation="180"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fondo_seccion" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="206dp"
+        android:layout_height="97dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reestablecerclave_label" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bNewPass"
+        app:srcCompat="@drawable/fondo_icons" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

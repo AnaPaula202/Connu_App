@@ -8,4 +8,5 @@
     <string name="goback">Regresar</string>
     <string name="name">Nombre</string>
     <string name="repeatpass">Repetir contraseña</string>
+    <string name="newPass">Reestablecer Contraseña</string>
 </resources>

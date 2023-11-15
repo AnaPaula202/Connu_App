@@ -6,4 +6,6 @@
     <string name="login">Iniciar Sesión</string>
     <string name="register">Registrarse</string>
     <string name="goback">Regresar</string>
+    <string name="name">Nombre</string>
+    <string name="repeatpass">Repetir contraseña</string>
 </resources>

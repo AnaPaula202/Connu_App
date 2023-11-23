@@ -59,13 +59,12 @@
         android:id="@+id/imageView"
         android:layout_width="277dp"
         android:layout_height="392dp"
-        app:srcCompat="@drawable/fondo_icons"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="534dp"
         app:layout_constraintCircle="@+id/bConfirmRegister"
         app:layout_constraintCircleAngle="110"
         app:layout_constraintCircleRadius="210dp"
-        />
+        app:srcCompat="@drawable/fondo_icons"
+        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteY="534dp" />
 
     <TextView
         android:id="@+id/tvRName"
@@ -80,6 +79,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGoback" />
 
     <TextView
+        android:id="@+id/tvRGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/alata"
+        android:text="@string/gender"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRName" />
+
+    <TextView
         android:id="@+id/tvRMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,7 +100,7 @@
         android:text="@string/correo"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRName" />
+        app:layout_constraintTop_toBottomOf="@+id/sRGender" />
 
     <TextView
         android:id="@+id/tvRPass"
@@ -189,4 +200,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/registro_label" />
+
+    <Spinner
+        android:id="@+id/sRGender"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRGender" />
 </androidx.constraintlayout.widget.ConstraintLayout>

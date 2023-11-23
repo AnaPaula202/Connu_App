@@ -19,11 +19,6 @@
             android:name=".MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".FeedActivity"
-            android:exported="false"
-            android:label="@string/title_activity_feed"
-            android:theme="@style/Theme.Connu" />
-        <activity
             android:name=".ForgottenPassActivity"
             android:exported="false" />
         <activity

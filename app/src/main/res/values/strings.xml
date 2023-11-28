@@ -53,4 +53,11 @@
     <string name="repeatpass">Repetir contraseña</string>
     <string name="newPass">Reestablecer Contraseña</string>
     <string name="gender">Sexo</string>
+    <string name="filtrar">Filtrar por categoría</string>
+    <string name="logout">Salir</string>
+    <string name="mainpage">Principal</string>
+    <string name="mypage">Mi página</string>
+    <string name="perfil">Mi perfil</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

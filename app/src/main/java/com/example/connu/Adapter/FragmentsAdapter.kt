@@ -1,12 +1,9 @@
 package com.example.connu.Adapter
 
 import android.content.Context
-import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.connu.ForgottenPassActivity
-import com.example.connu.Fragments.LogoutFragment
 import com.example.connu.Fragments.MYPageFragment
 import com.example.connu.Fragments.MainPageFragment
 import com.example.connu.Fragments.ProfileFragment
@@ -25,9 +22,6 @@ internal class FragmentsAdapter (val context: Context, val fragmentManager: Frag
             }
             2 -> {
                 ProfileFragment()
-            }
-            3 -> {
-                LogoutFragment()
             }
             else -> getItem(position)
         }

@@ -1,7 +1,10 @@
 package com.example.connu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connu.Adapter.FragmentsAdapter
 import com.example.connu.Fragments.MYPageFragment
@@ -18,6 +21,13 @@ class MainPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val bLogout : ImageView = findViewById(R.id.ivLogout)
+
+        bLogout.setOnClickListener {
+            val logout = Intent(this, MainActivity::class.java)
+            startActivity(logout)
+        }
 
         binding.tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
@@ -38,6 +48,8 @@ class MainPageActivity : AppCompatActivity() {
             }
 
         })
+
+
     }
 
 

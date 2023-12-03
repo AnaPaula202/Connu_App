@@ -16,4 +16,6 @@
     <string name="mypage">Mi página</string>
     <string name="perfil">Mi perfil</string>
     <string name="my_profile">Mi Perfil</string>
+    <string name="change_pass">Cambiar contraseña</string>
+    <string name="change_info">Cambiar información</string>
 </resources>

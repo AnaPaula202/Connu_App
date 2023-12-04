@@ -133,7 +133,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             },
             Response.ErrorListener { error ->
-                Log.e("VideoGameActivity", error.message.toString())
+                Log.e("RegisterActivity", error.message.toString())
             }
         )
 

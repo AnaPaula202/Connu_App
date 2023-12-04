@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -11,10 +12,12 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONException
 import org.json.JSONObject
 
 class RegisterActivity : AppCompatActivity() {
@@ -30,8 +33,8 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val tvGoback : TextView = findViewById(R.id.tvGoback)
-        val ivGoback : ImageView = findViewById(R.id.ivGoback)
+        val tvGoback: TextView = findViewById(R.id.tvGoback)
+        val ivGoback: ImageView = findViewById(R.id.ivGoback)
 
         tvGoback.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -50,63 +53,90 @@ class RegisterActivity : AppCompatActivity() {
         sRGender = findViewById(R.id.sRGender)
         bConfirmRegister = findViewById(R.id.bConfirmRegister)
 
-        // Configura el Spinner con datos ficticios
-        val genderAdapter = ArrayAdapter.createFromResource(this, R.array.genders, android.R.layout.simple_spinner_item)
-        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        sRGender.adapter = genderAdapter
 
-        // Configura el clic del botón de registro
+        // Configura el adapter para el spinner con las opciones de género
+        val generoAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.gender_options,
+            android.R.layout.simple_spinner_item
+        )
+        generoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sRGender.adapter = generoAdapter
+
         bConfirmRegister.setOnClickListener {
-            val name = etRName.text.toString()
-            val mail = etRMail.text.toString()
-            val password = etRPass.text.toString()
-            val repeatPassword = etRRepeatPass.text.toString()
-            val gender = sRGender.selectedItem.toString()
-
-            // Realiza la solicitud al servidor
-            enviarDatosAlServidor(name, mail, password, repeatPassword, gender)
+            validarYRegistrar()
         }
     }
 
-    private fun enviarDatosAlServidor(
+    private fun validarYRegistrar() {
+        val nombre: String = etRName.text.toString()
+        val correo: String = etRMail.text.toString()
+        val contrasena: String = etRPass.text.toString()
+        val repetirContrasena: String = etRRepeatPass.text.toString()
+
+        if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty() || repetirContrasena.isEmpty()) {
+            Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            Toast.makeText(this, "Correo electrónico no válido", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (contrasena != repetirContrasena) {
+            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Obtiene el índice seleccionado en el spinner
+        val generoIndex: Int = sRGender.selectedItemPosition
+
+        val genero: Int = when (generoIndex) {
+            0 -> 1 // Femenino
+            1 -> 2 // Masculino
+            else -> 0 // Valor predeterminado si no hay selección válida
+        }
+
+        // Llama a la función para enviar los datos al servidor
+        enviarDatos(nombre, correo, contrasena, genero)
+    }
+
+    private fun enviarDatos(
         name: String,
         mail: String,
-        password: String,
-        repeatPassword: String,
-        gender: String
+        pass: String,
+        sex: Int
     ) {
-        val url = "http://connu/registrarUsuario.php"  // Reemplaza con la URL correcta
+        val url = "http://192.168.1.72/connu/registrarUsuario.php";
 
         val requestQueue = Volley.newRequestQueue(this)
         val mapa = mutableMapOf<String, Any?>()
 
-        // Agrega tus parámetros al mapa
-        mapa["nombre"] = name
-        mapa["correo"] = mail
-        mapa["contrasena"] = password
-        mapa["repetir_contrasena"] = repeatPassword
-        mapa["sexo"] = gender
+        mapa.put("name", name)
+        mapa.put("mail", mail)
 
-        val parametros: JSONObject = JSONObject(mapa)
+        mapa.put("pass", pass)
+        mapa.put("sex", sex)
 
-        // Crea la solicitud JSON para enviar al servidor
-        val request: JsonObjectRequest = JsonObjectRequest(
+        val parametros : JSONObject = JSONObject(mapa)
+
+        val request : JsonObjectRequest = JsonObjectRequest(
             Request.Method.POST,
             url,
             parametros,
             Response.Listener { response ->
-                // Maneja la respuesta del servidor aquí
-                Log.d("RegisterActivity", "Respuesta del servidor: $response")
-                // Puedes mostrar un mensaje de éxito o error según la respuesta del servidor
+                if(response.getBoolean("exito")){
+                    finish()
+                } else {
+                    Toast.makeText(this, "Error en el servicio web", Toast.LENGTH_SHORT).show()
+                }
             },
             Response.ErrorListener { error ->
-                // Maneja el error de la solicitud al servidor aquí
-                Log.e("RegisterActivity", "Error en la solicitud al servidor: ${error.message}")
-                // Puedes mostrar un mensaje de error al usuario si es necesario
+                Log.e("VideoGameActivity", error.message.toString())
             }
         )
 
-        // Agrega la solicitud a la cola de solicitudes
         requestQueue.add(request)
     }
 }

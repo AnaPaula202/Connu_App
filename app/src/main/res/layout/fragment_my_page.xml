@@ -5,4 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_blue"
-    tools:context=".Fragments.MainPageFragment"/>
+    tools:context=".Fragments.MainPageFragment"
+    >
+
+    <TextView
+        android:id="@+id/tvFilter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/alata"
+        android:text="@string/filtrar"
+        android:textColor="@color/white"
+        android:layout_gravity="top|start" />
+
+    <ImageView
+        android:id="@+id/ivFilterMypage"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/baseline_filter_list_24"
+        android:layout_gravity="right"/>
+
+    <Spinner
+        android:id="@+id/sFilterMypage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="48dp"
+        android:background="@color/white"
+        android:minHeight="48dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMypage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp" />
+
+</FrameLayout>

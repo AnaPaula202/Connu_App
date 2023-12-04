@@ -21,4 +21,11 @@
     <string name="new_post">Nueva Publicación</string>
     <string name="cancel">Cancelar</string>
     <string name="publish">Publicar</string>
+
+    <string-array name="gender_options">
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
+
+
 </resources>

@@ -12,6 +12,7 @@ import com.example.connu.Fragments.MainPageFragment
 import com.example.connu.Fragments.ProfileFragment
 import com.example.connu.databinding.ActivityMainBinding
 import com.example.connu.databinding.ActivityMainPageBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 
 class MainPageActivity : AppCompatActivity() {
@@ -49,6 +50,12 @@ class MainPageActivity : AppCompatActivity() {
 
         })
 
+        val fab : FloatingActionButton = findViewById(R.id.fabNewPost)
+        fab.setOnClickListener {
+            // Iniciar la nueva Activity al hacer clic en el FloatingActionButton
+            val intent = Intent(this, NewPostActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

@@ -45,7 +45,6 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Inicializa tus elementos
         etRName = findViewById(R.id.etRName)
         etRMail = findViewById(R.id.etRMail)
         etRPass = findViewById(R.id.etRPass)

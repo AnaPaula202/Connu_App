@@ -72,8 +72,6 @@ class MainActivity : AppCompatActivity() {
             )
 
             requestQueue.add(request)
-
-
         }
 
 

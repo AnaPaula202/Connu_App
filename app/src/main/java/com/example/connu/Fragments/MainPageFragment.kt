@@ -1,11 +1,11 @@
 package com.example.connu.Fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -18,42 +18,43 @@ import com.example.connu.R
 import org.json.JSONArray
 import org.json.JSONObject
 
+
 class MainPageFragment : Fragment() {
-    private lateinit var adapter : PostAdapter
+    private lateinit var adapterpost : PostAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        consultarLista()
     }
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var view = inflater
         // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_main_page, container, false)
 
-        val rootView = inflater.inflate(R.layout.fragment_main_page, container, false)
+    }
 
-        val lista: RecyclerView = rootView.findViewById(R.id.posts)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        adapter = PostAdapter(this)
+        val lista : RecyclerView = view.findViewById(R.id.posts)
 
-        lista.adapter = adapter
+        adapterpost = PostAdapter(this)
+
+        lista.adapter = adapterpost
 
         val linearLayoutManager: RecyclerView.LayoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
         lista.layoutManager = linearLayoutManager
-
-        // Ahora que el adaptador está asignado, configura el LayoutManager
-
-        return rootView
-
     }
 
     fun consultarLista(){
         val requestQueue = Volley.newRequestQueue(requireActivity())
-        val url : String = "http://192.168.1.72/connu/listarPosts.php"
+        val url : String = "http://10.200.23.193/connu/listarPosts.php"
 
         val request : JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
@@ -91,7 +92,7 @@ class MainPageFragment : Fragment() {
                 datos.add(post)
             }
 
-            adapter.llenar(datos)
+            adapterpost.llenar(datos)
         }
     }
 

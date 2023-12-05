@@ -21,7 +21,7 @@
     <string name="new_post">Nueva Publicación</string>
     <string name="cancel">Cancelar</string>
     <string name="publish">Publicar</string>
-    <string name="likes">Likes</string>
+    <string name="likes">Likes: </string>
     <string name="contact">Contactar</string>
 
     <string-array name="gender_options">

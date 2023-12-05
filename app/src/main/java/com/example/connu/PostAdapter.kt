@@ -26,8 +26,13 @@ class PostAdapter : RecyclerView.Adapter<PostViewHolder> {
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val post = datos.get(position)
 
+        holder.tvNombrePost.text = post.user
+        holder.tvCuerpoPost.text = post.content
+        holder.tvLikes.text = post.likes
+        holder.tvTipoPost.text = post.ptype
+
         if(post.img.isEmpty()) {
-            holder.tvCuerpoPost.text = post.content
+
         } else {
             //Picasso.get().load(post.img).into(holder.ivImagenPost)
             holder.ivImagenPost.visibility = View.VISIBLE

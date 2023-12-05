@@ -86,7 +86,7 @@ class MainPageFragment : Fragment() {
                 post.img = registro.getString("img1")
                 post.user = registro.getString("nombre")
                 post.usermail = registro.getString("correo")
-                post.ptype = registro.getString("tipo_idtipo")
+                post.ptype = registro.getString("punombre")
                 post.likes = registro.getString("likes")
 
                 datos.add(post)

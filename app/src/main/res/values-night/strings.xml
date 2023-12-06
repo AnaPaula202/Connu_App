@@ -31,6 +31,7 @@
     <string name="content">Contenido</string>
     <string name="type">Tipo de publicación</string>
     <string name="new_post_img">Insertar Imagen (opcional)</string>
+    <string name="editmypost">Editar mi Post</string>
 
     <string-array name="gender_options">
         <item>Femenino</item>

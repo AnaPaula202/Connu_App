@@ -1,6 +1,7 @@
 package com.example.connu.Fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.connu.EditMyPostActivity
 import com.example.connu.MyPost
 import com.example.connu.MyPostAdapter
 import com.example.connu.R
@@ -89,6 +91,12 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
         myadapterpost.removeItem(postId)
     }
 
+    override fun onEditClick(postId: Int) {
+        // Aquí debes implementar la lógica para abrir la actividad de edición con el ID del post
+        val intent = Intent(requireContext(), EditMyPostActivity::class.java)
+        intent.putExtra("postId", postId)
+        startActivity(intent)
+    }
 
     fun consultarMiLista(){
         val sharedPreferences = requireContext().getSharedPreferences("mi_pref", Context.MODE_PRIVATE)

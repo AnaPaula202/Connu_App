@@ -20,16 +20,21 @@ class MyPostAdapter (private val context: MYPageFragment) : RecyclerView.Adapter
     }
     interface OnDeleteClickListener {
         fun onDeleteClick(postId: Int)
+        fun onEditClick(postId: Int)
     }
 
-    fun setOnDeleteClickListener(listener: MYPageFragment) {
+    fun setOnDeleteClickListener(listener: OnDeleteClickListener) {
         onDeleteClickListener = listener
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPostViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.my_post_fila, parent, false)
+        val viewHolder = MyPostViewHolder(view)
 
+        viewHolder.bEdit.setOnClickListener {
+            onDeleteClickListener?.onEditClick(datos[viewHolder.adapterPosition].idmypost)
+        }
         return MyPostViewHolder(view)
     }
 
@@ -65,6 +70,10 @@ class MyPostAdapter (private val context: MYPageFragment) : RecyclerView.Adapter
 
         holder.bDelete.setOnClickListener {
             onDeleteClickListener?.onDeleteClick(datos[position].idmypost)
+        }
+
+        holder.bEdit.setOnClickListener {
+            onDeleteClickListener?.onEditClick(datos[position].idmypost)
         }
 
     }

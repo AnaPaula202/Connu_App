@@ -14,6 +14,7 @@ class MyPostViewHolder : RecyclerView.ViewHolder {
     lateinit var ivMyImagenPost : ImageView
     lateinit var bMyLike : ImageView
     lateinit var bDelete : Button
+    lateinit var bEdit : Button
     constructor(itemView: View) : super(itemView){
 
         tvMyCuerpoPost = itemView.findViewById(R.id.tvMyPMessage)
@@ -22,6 +23,7 @@ class MyPostViewHolder : RecyclerView.ViewHolder {
         ivMyImagenPost = itemView.findViewById(R.id.ivMyPImg)
         bMyLike = itemView.findViewById(R.id.bMyLike)
         bDelete = itemView.findViewById(R.id.bDeleteMyPost)
+        bEdit = itemView.findViewById(R.id.bEditMyPost)
 
     }
 }

@@ -23,6 +23,9 @@
     <string name="publish">Publicar</string>
     <string name="likes">Likes: </string>
     <string name="contact">Contactar</string>
+    <string name="my_posts">Mis publicaciones</string>
+    <string name="upgrade">Convertirse en Prestador de Servicios</string>
+    <string name="profile_type">"Tipo de perfil: "</string>
 
     <string-array name="gender_options">
         <item>Femenino</item>

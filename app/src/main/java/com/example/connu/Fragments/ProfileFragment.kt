@@ -46,7 +46,6 @@ class ProfileFragment : Fragment() {
 
     fun consultarUser() {
         val sharedPreferences = requireContext().getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
-
         // Obtener el idUsuario del SharedPreferences
         val idUsuario = sharedPreferences.getInt("idUsuario", -1)
 
@@ -73,6 +72,10 @@ class ProfileFragment : Fragment() {
 
     private fun procesarUser(response: JSONObject?) {
         if (response != null && response.getBoolean("exito")) {
+
+            val sharedPreferences = requireContext().getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
+            val tipoUsuario = sharedPreferences.getString("tipoUsuario", "indefinido")
+
             // Obtener datos del usuario desde la respuesta JSON
             val nombreUsuario = response.getString("nombre")
             val correoUsuario = response.getString("correo")
@@ -80,9 +83,11 @@ class ProfileFragment : Fragment() {
 
             val etNombre: EditText = requireView().findViewById(R.id.etNameProfile)
             val etCorreo: EditText = requireView().findViewById(R.id.etMailProfile)
+            val tvTipoUser : TextView = requireView().findViewById(R.id.tvPrType)
 
             etNombre.setText(nombreUsuario)
             etCorreo.setText(correoUsuario)
+            tvTipoUser.text = tipoUsuario
 
         } else {
 

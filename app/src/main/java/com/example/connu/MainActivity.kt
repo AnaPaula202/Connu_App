@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentf)
         }
 
-        bLogin.setOnClickListener{
+        bLogin.setOnClickListener {
 
             etLMail = findViewById(R.id.etCorreo)
             etLPass = findViewById(R.id.etPass)
@@ -53,22 +53,28 @@ class MainActivity : AppCompatActivity() {
             mapa.put("mail", correo)
             mapa.put("pass", contrasena)
 
-            val parametros : JSONObject = JSONObject(mapa)
+            val parametros: JSONObject = JSONObject(mapa)
 
-            val request : JsonObjectRequest = JsonObjectRequest(
+            val request: JsonObjectRequest = JsonObjectRequest(
                 Request.Method.POST,
                 url,
                 parametros,
                 Response.Listener { response ->
-                    if(response.getBoolean("exito")){
+                    if (response.getBoolean("exito")) {
 
-                        val sharedPreferences = getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
+                        val sharedPreferences =
+                            getSharedPreferences("mi_pref", Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
 
-                        // Obtener el idUsuario del JSON response y guardarlo en SharedPreferences
+                        // Obtener el idUsuario y tipoUsuario del JSON response y guardarlo en SharedPreferences
                         val idUsuario = response.getInt("idUsuario")
+                        val tipoUsuario = response.getString("tipoUsuario")
+
                         editor.putInt("idUsuario", idUsuario)
+                        editor.putString("tipoUsuario", tipoUsuario)
+
                         editor.apply()
+
                         val login = Intent(this, MainPageActivity::class.java)
                         startActivity(login)
                     } else {
@@ -77,13 +83,13 @@ class MainActivity : AppCompatActivity() {
                 },
                 Response.ErrorListener { error ->
                     Log.e("MainActivity", error.message.toString())
-                    }
-                )
+                }
+            )
 
             requestQueue.add(request)
         }
 
 
-    }
+        }
 
 }

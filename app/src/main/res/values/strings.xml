@@ -73,6 +73,9 @@
     <string name="profile_type">"Tipo de perfil: "</string>
     <string name="delete">Eliminar</string>
     <string name="edit">Editar</string>
+    <string name="content">Contenido</string>
+    <string name="type">Tipo de publicación</string>
+    <string name="new_post_img">Insertar Imagen (opcional)</string>
 
     <string-array name="gender_options">
         <item>Femenino</item>

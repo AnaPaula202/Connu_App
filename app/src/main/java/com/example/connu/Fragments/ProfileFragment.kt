@@ -54,7 +54,7 @@ class ProfileFragment : Fragment() {
 
         val requestQueue = Volley.newRequestQueue(requireActivity())
 
-        val url: String = "http://10.200.29.3/connu/visualizarUsuario.php?idUsuario=$idUsuario"
+        val url: String = "http://192.168.68.133/connu/visualizarUsuario.php?idUsuario=$idUsuario"
 
         val request: JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
@@ -126,7 +126,7 @@ class ProfileFragment : Fragment() {
 
         val idUsuario = obtenerIdUsuarioDesdeSharedPreferences()
 
-        val url = "http://10.200.29.3/connu/actualizarUsuario.php";
+        val url = "http://192.168.68.133/connu/actualizarUsuario.php";
 
         val requestQueue = Volley.newRequestQueue(requireContext())
         val mapa = mutableMapOf<String, Any?>()

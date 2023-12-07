@@ -58,7 +58,7 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
     }
 
     override fun onDeleteClick(postId: Int) {
-        val url = "http://10.200.29.3/connu/eliminarPost.php"
+        val url = "http://192.168.68.133/connu/eliminarPost.php"
 
         val requestQueue = Volley.newRequestQueue(requireContext())
         val mapa = mutableMapOf<String, Any?>()
@@ -73,11 +73,8 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
             parametros,
             Response.Listener { response ->
                 if (response.getBoolean("exito")) {
-                    // La publicación se eliminó con éxito, puedes actualizar tu RecyclerView si es necesario
-                    // También puedes mostrar un mensaje de éxito o realizar otras acciones
                     Toast.makeText(requireContext(), response.getString("msj"), Toast.LENGTH_SHORT).show()
                 } else {
-                    // Ocurrió un error al eliminar la publicación
                     Toast.makeText(requireContext(), "Error al eliminar la publicación", Toast.LENGTH_SHORT).show()
                 }
             },
@@ -92,7 +89,6 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
     }
 
     override fun onEditClick(postId: Int) {
-        // Aquí debes implementar la lógica para abrir la actividad de edición con el ID del post
         val intent = Intent(requireContext(), EditMyPostActivity::class.java)
         intent.putExtra("postId", postId)
         startActivity(intent)
@@ -103,7 +99,7 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
         val idUsuario = sharedPreferences.getInt("idUsuario", -1)
 
         val requestQueue = Volley.newRequestQueue(requireActivity())
-        val url : String = "http://10.200.29.3/connu/listarMyPosts.php"
+        val url : String = "http://192.168.68.133/connu/listarMyPosts.php"
 
         val mapa = mutableMapOf<String, Any?>()
 

@@ -112,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
         pass: String,
         sex: Int
     ) {
-        val url = "http://10.200.29.3/connu/registrarUsuario.php";
+        val url = "http://192.168.68.133/connu/registrarUsuario.php";
 
         val requestQueue = Volley.newRequestQueue(this)
         val mapa = mutableMapOf<String, Any?>()

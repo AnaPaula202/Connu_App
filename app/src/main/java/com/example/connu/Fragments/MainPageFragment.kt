@@ -65,7 +65,7 @@ class MainPageFragment : Fragment() {
 
     fun consultarLista(){
         val requestQueue = Volley.newRequestQueue(requireActivity())
-        val url : String = "http://10.200.29.3/connu/listarPosts.php"
+        val url : String = "http://192.168.68.133/connu/listarPosts.php"
 
         val request : JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,

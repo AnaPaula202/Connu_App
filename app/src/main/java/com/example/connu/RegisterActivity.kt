@@ -88,6 +88,11 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
+        if (contrasena.length < 8) {
+            Toast.makeText(this, "Contraseña débil", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // Obtiene el índice seleccionado en el spinner
         val generoIndex: Int = sRGender.selectedItemPosition
 
@@ -107,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
         pass: String,
         sex: Int
     ) {
-        val url = "http://192.168.1.67/connu/registrarUsuario.php";
+        val url = "http://10.200.29.3/connu/registrarUsuario.php";
 
         val requestQueue = Volley.newRequestQueue(this)
         val mapa = mutableMapOf<String, Any?>()

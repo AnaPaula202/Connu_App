@@ -65,7 +65,7 @@ class NewPostActivity : AppCompatActivity() {
         content: String,
         img: String
     ) {
-        val url = "http://192.168.1.67/connu/nuevoPost.php"
+        val url = "http://10.200.29.3/connu/nuevoPost.php"
 
         val requestQueue = Volley.newRequestQueue(this)
         val mapa = mutableMapOf<String, Any?>()

@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             val correo: String = etLMail.text.toString()
             val contrasena: String = etLPass.text.toString()
 
-            val url = "http://192.168.1.67/connu/login.php";
+            val url = "http://10.200.29.3/connu/login.php";
 
             val requestQueue = Volley.newRequestQueue(this)
             val mapa = mutableMapOf<String, Any?>()

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,7 @@ import org.json.JSONObject
 class MainPageFragment : Fragment() {
     private lateinit var adapterpost : PostAdapter
     private lateinit var storage : FirebaseStorage
+    private lateinit var sFilterMypage : Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,13 @@ class MainPageFragment : Fragment() {
 
         val lista : RecyclerView = view.findViewById(R.id.posts)
 
+        sFilterMypage = view.findViewById(R.id.sFilterMypage)
+
+        val categorias = listOf("Seleccionar...","Proveedor de servicios", "Buscador de servicios")
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categorias)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sFilterMypage.adapter = adapter
+
         adapterpost = PostAdapter(this)
 
         lista.adapter = adapterpost
@@ -55,7 +65,7 @@ class MainPageFragment : Fragment() {
 
     fun consultarLista(){
         val requestQueue = Volley.newRequestQueue(requireActivity())
-        val url : String = "http://192.168.1.67/connu/listarPosts.php"
+        val url : String = "http://10.200.29.3/connu/listarPosts.php"
 
         val request : JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,

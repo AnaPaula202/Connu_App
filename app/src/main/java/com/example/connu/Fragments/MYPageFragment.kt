@@ -58,7 +58,7 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
     }
 
     override fun onDeleteClick(postId: Int) {
-        val url = "http://192.168.1.67/connu/eliminarPost.php"
+        val url = "http://10.200.29.3/connu/eliminarPost.php"
 
         val requestQueue = Volley.newRequestQueue(requireContext())
         val mapa = mutableMapOf<String, Any?>()
@@ -103,7 +103,7 @@ class MYPageFragment : Fragment(), MyPostAdapter.OnDeleteClickListener {
         val idUsuario = sharedPreferences.getInt("idUsuario", -1)
 
         val requestQueue = Volley.newRequestQueue(requireActivity())
-        val url : String = "http://192.168.1.67/connu/listarMyPosts.php"
+        val url : String = "http://10.200.29.3/connu/listarMyPosts.php"
 
         val mapa = mutableMapOf<String, Any?>()
 

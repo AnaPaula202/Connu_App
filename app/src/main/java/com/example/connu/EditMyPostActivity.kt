@@ -89,16 +89,12 @@ class EditMyPostActivity : AppCompatActivity() {
             parametros,
             Response.Listener { response ->
                 if (response.getBoolean("exito")) {
-                    // Obtener los detalles del post desde la respuesta JSON
                     val tipo = response.getInt("tipo")
                     val contenido = response.getString("contenido")
                     val img = response.getString("img")
 
-                    // Establecer los valores en las vistas correspondientes
                     spCateg.setSelection(tipo - 1)
                     ncontent.text = contenido
-
-                    // Resto del código...
                 } else {
                     Toast.makeText(this, "Error al obtener detalles del post", Toast.LENGTH_SHORT).show()
                 }
@@ -135,7 +131,6 @@ class EditMyPostActivity : AppCompatActivity() {
             parametros,
             Response.Listener { response ->
                 if (response.getBoolean("exito")) {
-                    // Actualizar el fragmento o realizar cualquier acción necesaria
                     finish()
                 } else {
                     Toast.makeText(this, "Error en el servicio web", Toast.LENGTH_SHORT).show()
